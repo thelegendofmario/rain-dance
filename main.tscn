@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_t1ayf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -224, 0, 0, 0, 0, 0, 224, 0, 0, 0, 0, 0, -224, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -224, 0, 0, 0, 0, 0, 916, 1, 0, 0, 0, 0, -224, 0)
 }
 point_count = 3
 
@@ -15,18 +15,46 @@ script = ExtResource("1_lmcjl")
 rainscene = ExtResource("2_5psrc")
 
 [node name="Bug" parent="." instance=ExtResource("1_uvg57")]
+position = Vector2(232, 128)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(232, 128)
 zoom = Vector2(2.535, 2.535)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label2" type="Label" parent="Camera2D/CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
 [node name="RainPath" type="Path2D" parent="."]
-position = Vector2(0, -128)
+position = Vector2(236, -1)
 curve = SubResource("Curve2D_t1ayf")
 
 [node name="RainSpawn" type="PathFollow2D" parent="RainPath"]
 position = Vector2(-224, 0)
+rotation = 0.000877193
 
 [node name="RainTimer" type="Timer" parent="."]
-wait_time = 0.068
+wait_time = 0.5
+autostart = true
+
+[node name="SecTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SecTim2" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [connection signal="timeout" from="RainTimer" to="." method="_on_rain_timer_timeout"]
+[connection signal="timeout" from="SecTimer" to="." method="_on_sec_timer_timeout"]
+[connection signal="timeout" from="SecTim2" to="." method="_on_sec_tim_2_timeout"]

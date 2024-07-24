@@ -26,15 +26,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og6ff"]
-size = Vector2(10, 11)
+size = Vector2(5, 9)
 
 [node name="Bug" type="CharacterBody2D"]
 script = ExtResource("1_8017v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uimmq")
-frame_progress = 0.677313
+frame_progress = 0.24152
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_og6ff")

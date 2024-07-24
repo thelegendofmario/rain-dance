@@ -17,3 +17,7 @@ shape = SubResource("CapsuleShape2D_4t5tv")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
 texture = ExtResource("1_8mdpm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -5.5)
+scale = Vector2(0.3, 0.65)
